@@ -50,6 +50,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 		usuarioDb.setIntentos(usuario.getIntentos());
 		usuarioDb.setEstado(usuario.getEstado());
 		
+		trace.currentSpan().tag("mensaje.info", "Actualizar usuario.");
 		usuarioDao.save(usuarioDb);
 		
 		return usuarioDb;

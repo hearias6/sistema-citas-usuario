@@ -22,6 +22,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	@Override
 	public Usuario consultarUsuario(String username) {
 		try {
+			trace.currentSpan().tag("error.mensaje", "Validandao el id del usuario.");
 			return usuarioDao.findById(username).orElse(null);
 		} catch (Exception e) {
 			String mensajeError = "Error en service consultar usuario " + e.getMessage();
